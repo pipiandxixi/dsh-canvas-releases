@@ -77,6 +77,26 @@
     .chip-text { fill: var(--accent-text); font: 600 11px -apple-system, BlinkMacSystemFont, sans-serif; }
     .hl { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 5 4; }
 
+    /* compare */
+    .compare { display: grid; grid-template-columns: 1fr 1.25fr; gap: 20px; align-items: stretch; }
+    .pane { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; }
+    .pane-tag { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+    .pane.after .pane-tag { color: var(--accent); }
+    .pane.after { border-color: var(--accent); }
+    .bubble { padding: 9px 13px; border-radius: 12px; background: var(--bg-alt); font-size: 0.92rem; margin: 6px 0; max-width: 92%; }
+    .bubble.you { background: var(--node-user); margin-left: auto; }
+    .bubble.lost { opacity: 0.55; border: 1px dashed var(--muted); background: transparent; font-style: italic; }
+    .pane-note { margin: auto 0 0; padding-top: 14px; color: var(--muted); font-size: 0.92rem; }
+    .pane svg { width: 100%; height: auto; display: block; }
+    .t-node { fill: var(--node-agent); stroke: var(--border); stroke-width: 1.5; }
+    .t-node.on { fill: var(--node-user); stroke: var(--node-user-line); }
+    .t-node.ask { stroke: var(--accent); stroke-dasharray: 5 4; stroke-width: 2; }
+    .t-text { fill: var(--text); font: 600 12.5px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+    .points { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .points li { padding-top: 14px; border-top: 2px solid var(--accent); }
+    .points strong { display: block; margin-bottom: 4px; }
+    .points span { color: var(--muted); font-size: 0.97rem; }
+
     /* steps */
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: step; }
     .step { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
@@ -118,7 +138,7 @@
     .foot-top img { width: 24px; height: 24px; }
 
     @media (max-width: 820px) {
-      .steps, .features, .two { grid-template-columns: 1fr; }
+      .steps, .features, .two, .compare, .points { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       section { padding: 52px 0; }
     }
@@ -147,15 +167,15 @@
     <section class="hero">
       <div class="wrap">
         <div class="hero-text">
-          <span class="eyebrow" data-i18n="eyebrow">Desktop app for macOS</span>
+          <span class="eyebrow" data-i18n="eyebrow">Free desktop app for macOS</span>
           <h1 data-i18n="h1">Think in branches.</h1>
-          <p class="lead" data-i18n="lead">DSH Canvas lays your AI conversations out as a tree on an infinite canvas. Go back to any reply, take a different path, and never lose the original.</p>
+          <p class="lead" data-i18n="lead">A chat makes you follow one question at a time. DSH Canvas lays a topic out in layers on a canvas, so you can go back to any point and ask the part you skipped.</p>
           <div class="cta">
             <a class="button downloadButton" href="#install" aria-disabled="true" data-i18n="download">Download for macOS</a>
             <a class="button ghost" href="#how" data-i18n="seeHow">See how it works</a>
           </div>
           <p class="meta downloadMeta"></p>
-          <p class="meta" data-i18n="requirements">Apple silicon Macs, macOS 13.5 or later.</p>
+          <p class="meta" data-i18n="requirements">Free. Apple silicon Macs, macOS 13.5 or later.</p>
         </div>
 
         <div class="stage" role="img" aria-labelledby="stageDesc">
@@ -194,6 +214,46 @@
           </svg>
           <p id="stageDesc" hidden>A conversation drawn as a tree of question and answer cards, with two branches leaving the same reply.</p>
         </div>
+      </div>
+    </section>
+
+    <section id="why" class="alt">
+      <div class="wrap">
+        <h2 data-i18n="whyTitle">A chat is a line. Your questions aren’t.</h2>
+        <p class="section-lead" data-i18n="whyLead">Most topics are layered: one big question made of several parts, each with its own follow-ups. A chat window only lets you go down one part at a time, and the rest scrolls away.</p>
+        <div class="compare">
+          <div class="pane">
+            <p class="pane-tag" data-i18n="before">In a normal chat</p>
+            <div class="bubble you" data-i18n="c1">How do I start a bakery?</div>
+            <div class="bubble" data-i18n="c2">Four parts: licensing, equipment, suppliers, pricing…</div>
+            <div class="bubble you" data-i18n="c3">Tell me more about licensing.</div>
+            <div class="bubble" data-i18n="c4">Licensing needs a permit, a health check…</div>
+            <div class="bubble lost" data-i18n="c5">…and the equipment and pricing questions you meant to ask are now far up the page.</div>
+            <p class="pane-note" data-i18n="beforeNote">You lose the thread, and you never see the whole picture.</p>
+          </div>
+          <div class="pane after">
+            <p class="pane-tag" data-i18n="after">On DSH Canvas</p>
+            <svg viewBox="0 0 430 236" role="img" aria-labelledby="treeDesc">
+              <path class="edge" d="M128 118 C150 118 150 34 172 34"/><path class="edge" d="M128 118 C150 118 150 86 172 86"/>
+              <path class="edge" d="M128 118 C150 118 150 150 172 150"/><path class="edge" d="M128 118 C150 118 150 202 172 202"/>
+              <path class="edge" d="M292 34 C312 34 312 18 332 18"/><path class="edge" d="M292 34 C312 34 312 56 332 56"/>
+              <rect class="t-node on" x="8" y="98" width="120" height="40" rx="10"/><text class="t-text" x="68" y="123" text-anchor="middle" data-i18n="t0">Start a bakery</text>
+              <rect class="t-node on" x="172" y="16" width="120" height="36" rx="10"/><text class="t-text" x="232" y="39" text-anchor="middle" data-i18n="t1">Licensing</text>
+              <rect class="t-node ask" x="172" y="68" width="120" height="36" rx="10"/><text class="t-text" x="232" y="91" text-anchor="middle" data-i18n="t2">Equipment</text>
+              <rect class="t-node ask" x="172" y="132" width="120" height="36" rx="10"/><text class="t-text" x="232" y="155" text-anchor="middle" data-i18n="t3">Suppliers</text>
+              <rect class="t-node ask" x="172" y="184" width="120" height="36" rx="10"/><text class="t-text" x="232" y="207" text-anchor="middle" data-i18n="t4">Pricing</text>
+              <rect class="t-node on" x="332" y="2" width="92" height="32" rx="10"/><text class="t-text" x="378" y="23" text-anchor="middle" data-i18n="t5">Permits</text>
+              <rect class="t-node on" x="332" y="40" width="92" height="32" rx="10"/><text class="t-text" x="378" y="61" text-anchor="middle" data-i18n="t6">Health</text>
+            </svg>
+            <p id="treeDesc" hidden>A tree with the main question on the left and four branches: licensing, equipment, suppliers and pricing. Licensing has two deeper follow-ups.</p>
+            <p class="pane-note" data-i18n="afterNote">Every part has its own branch. Dashed ones are still waiting for you. Click one and ask.</p>
+          </div>
+        </div>
+        <ul class="points">
+          <li><strong data-i18n="pt1t">See the layers</strong><span data-i18n="pt1d">The main question sits at the root. Each part branches out, and each follow-up goes one level deeper.</span></li>
+          <li><strong data-i18n="pt2t">Return to the exact context</strong><span data-i18n="pt2d">Click the reply where you left off and ask the question you skipped. The earlier answers stay as they were.</span></li>
+          <li><strong data-i18n="pt3t">Understand the whole topic</strong><span data-i18n="pt3d">When you’re done, the tree is a map of everything you explored, instead of a long scroll to re-read.</span></li>
+        </ul>
       </div>
     </section>
 
@@ -271,7 +331,7 @@
       <div class="wrap two">
         <div>
           <h2 data-i18n="instTitle">Get DSH Canvas</h2>
-          <p class="section-lead" data-i18n="instLead">For Apple silicon Macs running macOS 13.5 or later.</p>
+          <p class="section-lead" data-i18n="instLead">Free. For Apple silicon Macs running macOS 13.5 or later.</p>
           <a class="button downloadButton" href="#install" aria-disabled="true" data-i18n="download">Download for macOS</a>
           <p class="meta downloadMeta"></p>
         </div>
@@ -290,6 +350,7 @@
     <section id="faq" class="alt">
       <div class="wrap" style="max-width:760px">
         <h2 data-i18n="faqTitle">Questions</h2>
+        <details><summary data-i18n="q0">Is it free?</summary><p data-i18n="a0">Yes. DSH Canvas is free to download and use. You only pay your model provider for the requests you make with your own key.</p></details>
         <details><summary data-i18n="q1">Is there a Windows or Intel Mac version?</summary><p data-i18n="a1">Not yet. The first release is for Apple silicon Macs. Other platforms will follow.</p></details>
         <details><summary data-i18n="q2">Do I need an account?</summary><p data-i18n="a2">No. You need an API key from the model provider you want to use, and nothing else.</p></details>
         <details><summary data-i18n="q3">Where is my data stored?</summary><p data-i18n="a3">In <code>~/Library/Application Support/DSH Canvas</code>. Removing that folder removes your canvases and settings.</p></details>
@@ -311,10 +372,40 @@
     const REPO = 'pipiandxixi/dsh-canvas-releases';
     const text = {
       en: {
+        lead: "A chat makes you follow one question at a time. DSH Canvas lays a topic out in layers on a canvas, so you can go back to any point and ask the part you skipped.",
+        eyebrow: "Free desktop app for macOS",
+        requirements: "Free. Apple silicon Macs, macOS 13.5 or later.",
+        instLead: "Free. For Apple silicon Macs running macOS 13.5 or later.",
+        q0: "Is it free?",
+        a0: "Yes. DSH Canvas is free to download and use. You only pay your model provider for the requests you make with your own key.",
+        whyTitle: "A chat is a line. Your questions aren’t.",
+        whyLead: "Most topics are layered: one big question made of several parts, each with its own follow-ups. A chat window only lets you go down one part at a time, and the rest scrolls away.",
+        before: "In a normal chat",
+        after: "On DSH Canvas",
+        c1: "How do I start a bakery?",
+        c2: "Four parts: licensing, equipment, suppliers, pricing…",
+        c3: "Tell me more about licensing.",
+        c4: "Licensing needs a permit, a health check…",
+        c5: "…and the equipment and pricing questions you meant to ask are now far up the page.",
+        beforeNote: "You lose the thread, and you never see the whole picture.",
+        afterNote: "Every part has its own branch. Dashed ones are still waiting for you. Click one and ask.",
+        t0: "Start a bakery",
+        t1: "Licensing",
+        t2: "Equipment",
+        t3: "Suppliers",
+        t4: "Pricing",
+        t5: "Permits",
+        t6: "Health",
+        pt1t: "See the layers",
+        pt1d: "The main question sits at the root. Each part branches out, and each follow-up goes one level deeper.",
+        pt2t: "Return to the exact context",
+        pt2d: "Click the reply where you left off and ask the question you skipped. The earlier answers stay as they were.",
+        pt3t: "Understand the whole topic",
+        pt3d: "When you’re done, the tree is a map of everything you explored, instead of a long scroll to re-read.",
         navHow: 'How it works', navFeatures: 'Features', navModels: 'Models', navPrivacy: 'Privacy', navInstall: 'Install', navDownload: 'Download',
-        eyebrow: 'Desktop app for macOS', h1: 'Think in branches.',
-        lead: 'DSH Canvas lays your AI conversations out as a tree on an infinite canvas. Go back to any reply, take a different path, and never lose the original.',
-        download: 'Download for macOS', seeHow: 'See how it works', requirements: 'Apple silicon Macs, macOS 13.5 or later.',
+        h1: 'Think in branches.',
+       
+        download: 'Download for macOS', seeHow: 'See how it works',
         howTitle: 'A conversation that can go more than one way', howLead: 'A chat is a single line. Real thinking isn’t. DSH Canvas keeps every path you try.',
         s1t: 'Ask', s1d: 'Start a session in any folder on your Mac. Your question and the reply appear as cards on the canvas.',
         s2t: 'Branch', s2d: 'Pick any earlier reply and ask again from there. The new question grows a new branch; the old one stays exactly as it was.',
@@ -333,7 +424,7 @@
         p1t: 'Stored on your computer.', p1d: 'Canvases and settings are plain files in your user library. Delete the folder and they’re gone.',
         p2t: 'Key never leaves for us.', p2d: 'Your API key is sent only to the provider you picked. We run no server that sees it.',
         p3t: 'Closed to other programs.', p3d: 'The app’s local service listens only on your machine, on a random port, and requires a secret that only its own window holds.',
-        instTitle: 'Get DSH Canvas', instLead: 'For Apple silicon Macs running macOS 13.5 or later.',
+        instTitle: 'Get DSH Canvas',
         i1: 'Open the downloaded <code>.dmg</code> and drag DSH Canvas into Applications.',
         i2: 'Open it from Applications. Because the app is not yet signed with an Apple Developer ID, macOS may stop the first launch.',
         i3: 'If it does, open System Settings → Privacy &amp; Security and choose “Open Anyway”. If macOS says the app is damaged, run this in Terminal and open it again:',
@@ -348,10 +439,40 @@
         none: 'The first release is not available yet.', version: 'Version {v} · {size} MB · {date}'
       },
       zh: {
+        lead: "聊天只能让你一次顺着一个问题往下问。DSH Canvas 把一个话题按层次铺在画布上，你可以回到任意位置，去问被跳过的那一部分。",
+        eyebrow: "免费的 macOS 桌面应用",
+        requirements: "免费。适用于 Apple 芯片的 Mac，macOS 13.5 及以上。",
+        instLead: "免费。适用于 macOS 13.5 及以上的 Apple 芯片 Mac。",
+        q0: "免费吗？",
+        a0: "免费。DSH Canvas 可以免费下载和使用。你只需要为自己的 key 发出的请求，向模型提供方付费。",
+        whyTitle: "聊天是一条线，你的问题不是。",
+        whyLead: "大多数话题是分层的：一个大问题由几个部分组成，每个部分又有各自的追问。聊天窗口一次只能顺着一个部分往下问，其余的就被刷到上面去了。",
+        before: "在普通的聊天里",
+        after: "在 DSH Canvas 里",
+        c1: "我想开一家面包店，该怎么做？",
+        c2: "分四个部分：证照、设备、供应商、定价……",
+        c3: "先详细讲讲证照。",
+        c4: "证照需要许可证、卫生检查……",
+        c5: "……而你本来想问的设备和定价，已经被刷到很远的上面了。",
+        beforeNote: "你会丢掉线索，也始终看不到问题的全貌。",
+        afterNote: "每个部分都有自己的分支。虚线框是还在等你的部分，点开它就能接着问。",
+        t0: "开面包店",
+        t1: "证照",
+        t2: "设备",
+        t3: "供应商",
+        t4: "定价",
+        t5: "许可证",
+        t6: "卫生",
+        pt1t: "看清层次",
+        pt1d: "大问题在最左边，每个部分向外分出分支，每次追问再深入一层。",
+        pt2t: "回到当时的上下文",
+        pt2d: "点开你上次停下的那条回复，问出之前跳过的问题。之前的回答原样保留。",
+        pt3t: "理解话题的全貌",
+        pt3d: "问完之后，这棵树就是你探索过的全部内容的地图，不用再翻一长串记录重新读。",
         navHow: '工作方式', navFeatures: '功能', navModels: '模型', navPrivacy: '隐私', navInstall: '安装', navDownload: '下载',
-        eyebrow: 'macOS 桌面应用', h1: '让思路长成一棵树。',
-        lead: 'DSH Canvas 把你和 AI 的对话铺在无限画布上，连成一棵树。回到任意一条回复，换条路再走，原来的内容始终都在。',
-        download: '下载 macOS 版', seeHow: '看看怎么用', requirements: '适用于 Apple 芯片的 Mac，macOS 13.5 及以上。',
+        h1: '让思路长成一棵树。',
+       
+        download: '下载 macOS 版', seeHow: '看看怎么用',
         howTitle: '一段对话，可以有不止一个走向', howLead: '聊天记录是一条直线，真正的思考不是。DSH Canvas 会留下你尝试过的每一条路。',
         s1t: '提问', s1d: '在你电脑上的任意文件夹里开启会话。问题和回复会变成画布上的卡片。',
         s2t: '分支', s2d: '选中任意一条之前的回复，从那里再问一次。新问题会长出新分支，旧的内容原样保留。',
@@ -370,7 +491,7 @@
         p1t: '保存在你的电脑上。', p1d: '画布和设置是你用户资源库里的普通文件，删掉文件夹就全部清除。',
         p2t: 'key 不会经过我们。', p2d: '你的 API key 只会发送给你选择的提供方。我们没有任何服务器会看到它。',
         p3t: '不对其他程序开放。', p3d: '应用的本地服务只在本机监听，端口随机，并且需要只有应用自己的窗口才持有的密钥。',
-        instTitle: '获取 DSH Canvas', instLead: '适用于 macOS 13.5 及以上的 Apple 芯片 Mac。',
+        instTitle: '获取 DSH Canvas',
         i1: '打开下载的 <code>.dmg</code>，把 DSH Canvas 拖进“应用程序”。',
         i2: '从“应用程序”里打开。由于应用还没有用 Apple 开发者证书签名，macOS 可能会拦截第一次启动。',
         i3: '如果被拦截，请打开“系统设置 → 隐私与安全性”，点“仍要打开”。如果提示应用已损坏，在终端运行下面这行命令，再重新打开：',
@@ -397,7 +518,7 @@
       }
       for (const button of document.querySelectorAll('[data-lang]')) button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
       for (const meta of document.querySelectorAll('.downloadMeta')) {
-        meta.textContent = release ? text[lang].version.replace('{v}', release.version).replace('{size}', release.size).replace('{date}', release.date) : text[lang].none;
+        meta.textContent = release ? (release.version ? text[lang].version.replace('{v}', release.version).replace('{size}', release.size).replace('{date}', release.date) : '') : text[lang].none;
       }
       for (const button of document.querySelectorAll('.downloadButton')) {
         if (release) { button.href = release.url; button.removeAttribute('aria-disabled'); }
@@ -409,8 +530,9 @@
     }
     render();
     fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { headers: { Accept: 'application/vnd.github+json' } })
-      .then(response => (response.ok ? response.json() : null))
+      .then(response => (response.status === 404 ? null : response.ok ? response.json() : undefined))
       .then((data) => {
+        if (data === undefined) { release = { url: `https://github.com/${REPO}/releases/latest/download/DSH-Canvas-arm64.dmg`, version: '', size: '', date: '' }; render(); return; }
         const asset = data?.assets?.find(item => item.name.endsWith('.dmg'));
         if (!asset) return;
         release = { url: asset.browser_download_url, version: String(data.tag_name || '').replace(/^v/, ''), size: Math.round(asset.size / 1048576), date: String(data.published_at || '').slice(0, 10) };
