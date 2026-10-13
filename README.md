@@ -1,6 +1,6 @@
 # DSH Canvas releases
 
-Download page and release builds for **DSH Canvas**, a desktop app that lets you explore AI conversations as a tree on an infinite canvas.
+Product site (`web/`) and release builds for **DSH Canvas**, a desktop app that lets you explore AI conversations as a tree on an infinite canvas.
 
 - **Download:** see [Releases](../../releases) or the [download page](https://pipiandxixi.github.io/dsh-canvas-releases/).
 - **Requirements:** Apple silicon Mac, macOS 13.5 or later.
