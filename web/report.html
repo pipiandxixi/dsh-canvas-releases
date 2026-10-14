@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report a bug · DSH Canvas</title>
+<meta name="description" content="Report a problem with DSH Canvas. Your app version and macOS version are filled in for you.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="logo.svg"><link rel="stylesheet" href="legal.css">
+</head>
+<body>
+<header><div class="bar"><a class="brand" href="./"><img src="logo.svg" alt="">DSH Canvas</a><div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en">English</button>|<button type="button" data-lang="zh">中文</button></div></div></header>
+<main>
+<div class="en">
+<h1>Report a bug</h1>
+<p class="summary">Tell us what went wrong. Your report becomes a public issue on GitHub, so you need a free GitHub account to submit it.</p>
+</div>
+<div class="zh">
+<h1>报告问题</h1>
+<p class="summary">告诉我们哪里出了问题。你的报告会成为 GitHub 上的一条公开 Issue，所以提交需要一个免费的 GitHub 账号。</p>
+</div>
+
+<form id="form">
+  <div class="row2">
+    <label><span class="en">App version</span><span class="zh">应用版本</span><input id="version" readonly></label>
+    <label><span class="en">System</span><span class="zh">系统</span><input id="system" readonly></label>
+  </div>
+  <label><span class="en">What happened?</span><span class="zh">发生了什么？</span><textarea id="what" required></textarea></label>
+  <label><span class="en">Steps to reproduce <small>(optional)</small></span><span class="zh">复现步骤 <small>（可选）</small></span><textarea id="steps"></textarea></label>
+  <label><span class="en">What did you expect? <small>(optional)</small></span><span class="zh">你期望的结果 <small>（可选）</small></span><textarea id="expected"></textarea></label>
+  <p class="note en">The issue is public. Please do not include API keys, passwords, or private conversation content.</p>
+  <p class="note zh">Issue 是公开的。请不要写入 API 密钥、密码或私密的对话内容。</p>
+  <div class="actions">
+    <button class="btn" type="submit"><span class="en">Continue on GitHub</span><span class="zh">前往 GitHub 提交</span></button>
+    <button class="btn ghost" type="button" id="copy"><span class="en">Copy report</span><span class="zh">复制报告</span></button>
+  </div>
+</form>
+</main>
+<script src="legal.js"></script>
+<script>
+(() => {
+  const q = new URLSearchParams(location.search);
+  const clean = (v, n) => (v || '').replace(/[\r\n]+/g, ' ').slice(0, n);
+  const version = clean(q.get('v'), 20) || 'unknown';
+  const system = clean(q.get('os'), 60) || clean(navigator.platform, 40) || 'unknown';
+  document.getElementById('version').value = version;
+  document.getElementById('system').value = system;
+  if (q.get('lang') === 'zh' || q.get('lang') === 'en') { try { localStorage.setItem('lang', q.get('lang')); } catch {} document.documentElement.lang = q.get('lang') === 'zh' ? 'zh-CN' : 'en'; }
+  const get = id => document.getElementById(id).value.trim();
+  const report = () => {
+    const parts = ['**What happened**', get('what')];
+    if (get('steps')) parts.push('', '**Steps to reproduce**', get('steps'));
+    if (get('expected')) parts.push('', '**Expected**', get('expected'));
+    parts.push('', '---', `DSH Canvas ${version} · ${system}`);
+    return parts.join('\n');
+  };
+  const title = () => `[Bug] ${get('what').split('\n')[0].slice(0, 70)}`;
+  document.getElementById('form').addEventListener('submit', e => {
+    e.preventDefault();
+    const url = new URL('https://github.com/pipiandxixi/dsh-canvas-releases/issues/new');
+    url.searchParams.set('title', title());
+    url.searchParams.set('body', report());
+    url.searchParams.set('labels', 'bug');
+    location.href = url.toString();
+  });
+  document.getElementById('copy').addEventListener('click', async () => { try { await navigator.clipboard.writeText(`${title()}\n\n${report()}`); } catch {} });
+})();
+</script>
+</body>
+</html>

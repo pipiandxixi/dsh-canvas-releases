@@ -3,11 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DSH Canvas</title>
-  <meta name="description" content="A desktop app that turns AI conversations into a tree on an infinite canvas. Branch from any reply, bring your own model, keep everything on your Mac.">
-  <meta property="og:title" content="DSH Canvas">
-  <meta property="og:description" content="Think in branches. AI conversations as a tree on an infinite canvas, running locally on your Mac.">
+  <title>DSH Canvas – Free AI chat as a branching tree on a canvas for Mac</title>
+  <meta name="description" content="DSH Canvas is a free macOS app that turns AI conversations into a tree on an infinite canvas. Branch from any reply, bring your own model, keep everything on your Mac.">
+  <link rel="canonical" href="https://pipiandxixi.github.io/dsh-canvas-releases/">
+  <meta name="theme-color" content="#4d6bfe">
+  <meta property="og:site_name" content="DSH Canvas">
+  <meta property="og:title" content="DSH Canvas – Think in branches">
+  <meta property="og:description" content="Free macOS app: AI conversations as a tree on a canvas. Branch from any reply, bring your own model, keep everything on your Mac.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pipiandxixi.github.io/dsh-canvas-releases/">
+  <meta property="og:image" content="https://pipiandxixi.github.io/dsh-canvas-releases/og.png">
+  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DSH Canvas: a conversation drawn as a tree of questions and replies.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DSH Canvas – Think in branches">
+  <meta name="twitter:description" content="Free macOS app: AI conversations as a tree on a canvas.">
+  <meta name="twitter:image" content="https://pipiandxixi.github.io/dsh-canvas-releases/og.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "DSH Canvas", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS 13.5 or later (Apple silicon)", "description": "A free desktop app that turns AI conversations into a tree on a canvas. Branch from any reply, bring your own model, and keep everything on your Mac.", "url": "https://pipiandxixi.github.io/dsh-canvas-releases/", "image": "https://pipiandxixi.github.io/dsh-canvas-releases/og.png", "downloadUrl": "https://github.com/pipiandxixi/dsh-canvas-releases/releases/latest/download/DSH-Canvas-arm64.dmg", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "inLanguage": ["en", "zh-CN"]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. DSH Canvas is free to download and use. You only pay your model provider for the requests you make with your own key."}}, {"@type": "Question", "name": "Is there a Windows or Intel Mac version?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. The first release is for Apple silicon Macs. Other platforms will follow."}}, {"@type": "Question", "name": "Do I need an account?", "acceptedAnswer": {"@type": "Answer", "text": "No. You need an API key from the model provider you want to use, and nothing else."}}, {"@type": "Question", "name": "Where is my data stored?", "acceptedAnswer": {"@type": "Answer", "text": "In ~/Library/Application Support/DSH Canvas. Removing that folder removes your canvases and settings."}}, {"@type": "Question", "name": "What is DSH?", "acceptedAnswer": {"@type": "Answer", "text": "DSH is the open-source agent engine that DSH Canvas runs locally to talk to models and work with your files. DSH Canvas is the canvas interface built around it."}}]}</script>
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   <style>
     :root {
@@ -67,6 +80,10 @@
     .stage { margin: 48px auto 0; max-width: 940px; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; }
     .stage-bar { display: flex; gap: 7px; padding: 12px 16px; border-bottom: 1px solid var(--border); }
     .stage-bar i { width: 11px; height: 11px; border-radius: 50%; background: var(--border); display: block; }
+    html[lang^="zh"] .en-only, html:not([lang^="zh"]) .zh-only { display: none; }
+    .shot { margin: 0 0 36px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+    .shot img { display: block; width: 100%; height: auto; }
+    .stage picture, .stage img, .shot picture, .shot img { display: block; width: 100%; height: auto; }
     .stage svg { display: block; width: 100%; height: auto; background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 22px 22px; }
     .edge { fill: none; stroke: var(--edge); stroke-width: 2; }
     .card-user { fill: var(--node-user); stroke: var(--node-user-line); }
@@ -131,6 +148,12 @@
     details:first-of-type { border-top: 1px solid var(--border); }
     summary { cursor: pointer; font-weight: 600; }
     details p { margin: 10px 0 0; color: var(--muted); }
+    #story .story { font-size: 1.05rem; }
+    .story { margin-top: 10px; color: var(--muted); }
+    .story p { margin: 0 0 12px; }
+    .story ol { margin: 0 0 12px; padding-left: 1.4em; }
+    .story em { color: var(--text); font-style: normal; font-weight: 600; }
+    .story strong { color: var(--text); }
     .note { margin-top: 18px; padding: 14px 16px; border-radius: 12px; background: var(--accent-soft); font-size: 0.95rem; }
 
     footer { border-top: 1px solid var(--border); padding: 36px 0 56px; color: var(--muted); font-size: 0.88rem; }
@@ -181,40 +204,23 @@
 
         <div class="stage" role="img" aria-labelledby="stageDesc">
           <div class="stage-bar"><i></i><i></i><i></i></div>
-          <svg viewBox="0 0 940 440" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-            <!-- edges -->
-            <path class="edge" d="M210 98 C250 98 250 98 290 98"/>
-            <path class="edge" d="M490 98 C530 98 530 62 570 62"/>
-            <path class="edge" d="M490 98 C530 98 530 190 570 190"/>
-            <path class="edge" d="M770 62 C800 62 800 62 830 62"/>
-            <path class="edge" d="M210 98 C250 98 250 292 290 292"/>
-            <path class="edge" d="M490 292 C530 292 530 350 570 350"/>
-            <path class="edge" d="M490 292 C530 292 530 262 570 262"/>
-            <!-- nodes -->
-            <rect class="card-user" x="20" y="64" width="190" height="68" rx="12"/>
-            <rect class="line strong" x="38" y="82" width="120" height="8" rx="4"/><rect class="line" x="38" y="100" width="150" height="7" rx="3.5"/>
-            <rect class="card-agent" x="290" y="58" width="200" height="80" rx="12"/>
-            <rect class="line strong" x="308" y="76" width="130" height="8" rx="4"/><rect class="line" x="308" y="94" width="160" height="7" rx="3.5"/><rect class="line" x="308" y="108" width="110" height="7" rx="3.5"/>
-            <rect class="card-user" x="570" y="30" width="200" height="64" rx="12"/>
-            <rect class="line strong" x="588" y="48" width="110" height="8" rx="4"/><rect class="line" x="588" y="66" width="150" height="7" rx="3.5"/>
-            <rect class="card-agent" x="830" y="34" width="90" height="56" rx="12"/>
-            <rect class="line" x="844" y="52" width="60" height="7" rx="3.5"/><rect class="line" x="844" y="66" width="40" height="7" rx="3.5"/>
-            <rect class="card-user" x="570" y="158" width="200" height="64" rx="12"/>
-            <rect class="line strong" x="588" y="176" width="130" height="8" rx="4"/><rect class="line" x="588" y="194" width="120" height="7" rx="3.5"/>
-            <rect class="card-agent" x="290" y="250" width="200" height="84" rx="12"/>
-            <rect class="line strong" x="308" y="268" width="100" height="8" rx="4"/><rect class="line" x="308" y="286" width="160" height="7" rx="3.5"/><rect class="line" x="308" y="300" width="140" height="7" rx="3.5"/><rect class="line" x="308" y="314" width="90" height="7" rx="3.5"/>
-            <rect class="card-user" x="570" y="230" width="200" height="64" rx="12"/>
-            <rect class="line strong" x="588" y="248" width="100" height="8" rx="4"/><rect class="line" x="588" y="266" width="140" height="7" rx="3.5"/>
-            <rect class="card-user" x="570" y="318" width="200" height="64" rx="12"/>
-            <rect class="line strong" x="588" y="336" width="120" height="8" rx="4"/><rect class="line" x="588" y="354" width="90" height="7" rx="3.5"/>
-            <!-- label chips -->
-            <rect class="chip" x="308" y="344" width="64" height="22" rx="11"/><text class="chip-text" x="340" y="359" text-anchor="middle">idea</text>
-            <rect class="chip" x="380" y="344" width="50" height="22" rx="11" opacity="0.7"/><text class="chip-text" x="405" y="359" text-anchor="middle">todo</text>
-            <!-- highlighted branch point -->
-            <rect class="hl" x="282" y="50" width="216" height="96" rx="16"/>
-          </svg>
+          <picture class="en-only">
+            <source media="(prefers-color-scheme: dark)" srcset="img/app-dark.png">
+            <img src="img/app-light.png" alt="The DSH Canvas window: a conversation drawn as a tree of questions and replies on the left, with the selected reply opened in full on the right." width="2880" height="1320" loading="eager">
+          </picture>
+          <picture class="zh-only">
+            <source media="(prefers-color-scheme: dark)" srcset="img/app-dark-zh.png">
+            <img src="img/app-light-zh.png" alt="DSH Canvas 窗口：左侧是以问题和回复组成的对话树，右侧完整展开了选中的回复。" width="2880" height="1320" loading="eager">
+          </picture>
           <p id="stageDesc" hidden>A conversation drawn as a tree of question and answer cards, with two branches leaving the same reply.</p>
         </div>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="wrap" style="max-width:760px">
+        <h2 data-i18n="storyTitle">Why we built DSH Canvas</h2>
+        <div class="story" data-i18n="aWhy"><p>Picture a task you do all the time: asking an AI to help you understand a book. You ask for the key ideas of <em>Thinking, Fast and Slow</em>, and the reply gives you five of them:</p><ol><li>Two systems of thinking</li><li>Heuristics and biases</li><li>Prospect theory</li><li>Overconfidence</li><li>The experiencing self and the remembering self</li></ol><p>You are curious about the first one, so you ask about it. The answer has its own sub-points, you pick one, and a few rounds later you are deep in a detail. Then you remember: <em>what was that third idea, prospect theory?</em> It is somewhere far up the chat. You scroll, you skim, you lose your place, and often you just give up. The other four ideas are gone, and you never see the whole book in one view.</p><p>The same thing happens when an agent does real work for you. Ask it to plan a software release and the answer has several decisions at once: the version scope, the rollout plan, the pricing change, the announcement. You dive into the rollout, then into one risk inside it, and by the time you are done the other decisions have scrolled out of sight.</p><p>Almost every serious conversation looks like this: the answer is a set of points, not a single line, and we follow only one or two of them at a time. A chat window is a single line, so everything we did not follow is buried.</p><p><strong>DSH Canvas fixes exactly this.</strong> Every reply is a card on a canvas, and every follow-up grows a branch from the point you chose. The five ideas stay side by side as five branches. When you want prospect theory, you click that spot and ask there, exactly where you left it, and the earlier answers stay as they were. When you finish, the tree is a map of everything you explored, instead of a long scroll to re-read.</p></div>
       </div>
     </section>
 
@@ -262,6 +268,16 @@
       <div class="wrap">
         <h2 data-i18n="howTitle">A conversation that can go more than one way</h2>
         <p class="section-lead" data-i18n="howLead">A chat is a single line. Real thinking isn’t. DSH Canvas keeps every path you try.</p>
+        <figure class="shot">
+          <picture class="en-only">
+            <source media="(prefers-color-scheme: dark)" srcset="img/tree-dark.png">
+            <img src="img/tree-light.png" alt="One question branching into three follow-up threads, two of which go several levels deep." width="2880" height="1040" loading="lazy">
+          </picture>
+          <picture class="zh-only">
+            <source media="(prefers-color-scheme: dark)" srcset="img/tree-dark-zh.png">
+            <img src="img/tree-light-zh.png" alt="一个问题分出三条追问线索，其中两条继续向下延伸多层。" width="2880" height="1040" loading="lazy">
+          </picture>
+        </figure>
         <div class="steps">
           <div class="step"><h3 data-i18n="s1t">Ask</h3><p data-i18n="s1d">Start a session in any folder on your Mac. Your question and the reply appear as cards on the canvas.</p></div>
           <div class="step"><h3 data-i18n="s2t">Branch</h3><p data-i18n="s2d">Pick any earlier reply and ask again from there. The new question grows a new branch; the old one stays exactly as it was.</p></div>
@@ -318,7 +334,7 @@
       <div class="wrap two">
         <div>
           <h2 data-i18n="privTitle">Your conversations stay yours</h2>
-          <p class="section-lead" style="margin-bottom:0" data-i18n="privLead">DSH Canvas runs entirely on your Mac. The only network traffic is between the app and the model provider you choose.</p>
+          <p class="section-lead" style="margin-bottom:0" data-i18n="privLead">DSH Canvas runs on your Mac. Your conversations go only to the model provider you choose, and we run no server that receives them.</p>
         </div>
         <ul class="checks">
           <li><strong data-i18n="p1t">Stored on your computer.</strong> <span data-i18n="p1d">Canvases and settings are plain files in your user library. Delete the folder and they’re gone.</span></li>
@@ -364,7 +380,7 @@
       <div class="foot-top"><img src="logo.svg" alt="">DSH Canvas</div>
       <p data-i18n="affiliation">DSH Canvas is an independent project built on the open-source DeepSeek Harness (DSH). It is not affiliated with, endorsed by, or sponsored by DeepSeek.</p>
       <p data-i18n="licenses">Third-party open-source licenses are included in the app (NOTICES.txt).</p>
-      <p><a href="https://github.com/pipiandxixi/dsh-canvas-releases/releases" data-i18n="allReleases">All releases</a></p>
+      <p><a href="https://github.com/pipiandxixi/dsh-canvas-releases/releases" data-i18n="allReleases">All releases</a> · <a href="privacy.html" data-i18n="footPrivacy">Privacy Policy</a> · <a href="terms.html" data-i18n="footTerms">Terms of Use</a> · <a href="https://github.com/pipiandxixi/dsh-canvas-releases/issues" data-i18n="footSupport">Feedback &amp; support</a></p>
     </div>
   </footer>
 
@@ -376,6 +392,7 @@
         eyebrow: "Free desktop app for macOS",
         requirements: "Free. Apple silicon Macs, macOS 13.5 or later.",
         instLead: "Free. For Apple silicon Macs running macOS 13.5 or later.",
+        storyTitle: "Why we built DSH Canvas", aWhy: "<p>Picture a task you do all the time: asking an AI to help you understand a book. You ask for the key ideas of <em>Thinking, Fast and Slow</em>, and the reply gives you five of them:</p><ol><li>Two systems of thinking</li><li>Heuristics and biases</li><li>Prospect theory</li><li>Overconfidence</li><li>The experiencing self and the remembering self</li></ol><p>You are curious about the first one, so you ask about it. The answer has its own sub-points, you pick one, and a few rounds later you are deep in a detail. Then you remember: <em>what was that third idea, prospect theory?</em> It is somewhere far up the chat. You scroll, you skim, you lose your place, and often you just give up. The other four ideas are gone, and you never see the whole book in one view.</p><p>The same thing happens when an agent does real work for you. Ask it to plan a software release and the answer has several decisions at once: the version scope, the rollout plan, the pricing change, the announcement. You dive into the rollout, then into one risk inside it, and by the time you are done the other decisions have scrolled out of sight.</p><p>Almost every serious conversation looks like this: the answer is a set of points, not a single line, and we follow only one or two of them at a time. A chat window is a single line, so everything we did not follow is buried.</p><p><strong>DSH Canvas fixes exactly this.</strong> Every reply is a card on a canvas, and every follow-up grows a branch from the point you chose. The five ideas stay side by side as five branches. When you want prospect theory, you click that spot and ask there, exactly where you left it, and the earlier answers stay as they were. When you finish, the tree is a map of everything you explored, instead of a long scroll to re-read.</p>",
         q0: "Is it free?",
         a0: "Yes. DSH Canvas is free to download and use. You only pay your model provider for the requests you make with your own key.",
         whyTitle: "A chat is a line. Your questions aren’t.",
@@ -420,7 +437,7 @@
         modelsTitle: 'Bring the model you already use', modelsLead: 'Pick a provider in Settings and paste your API key. Nothing else to configure.',
         custom: 'Any OpenAI-compatible endpoint',
         modelsNote: 'For a custom endpoint, enter its base URL and key. The model list is fetched automatically, and you can add model names by hand if the endpoint doesn’t publish one.',
-        privTitle: 'Your conversations stay yours', privLead: 'DSH Canvas runs entirely on your Mac. The only network traffic is between the app and the model provider you choose.',
+        privTitle: 'Your conversations stay yours', privLead: 'DSH Canvas runs on your Mac. Your conversations go only to the model provider you choose, and we run no server that receives them.',
         p1t: 'Stored on your computer.', p1d: 'Canvases and settings are plain files in your user library. Delete the folder and they’re gone.',
         p2t: 'Key never leaves for us.', p2d: 'Your API key is sent only to the provider you picked. We run no server that sees it.',
         p3t: 'Closed to other programs.', p3d: 'The app’s local service listens only on your machine, on a random port, and requires a secret that only its own window holds.',
@@ -435,7 +452,7 @@
         q3: 'Where is my data stored?', a3: 'In <code>~/Library/Application Support/DSH Canvas</code>. Removing that folder removes your canvases and settings.',
         q4: 'What is DSH?', a4: 'DSH is the open-source agent engine that DSH Canvas runs locally to talk to models and work with your files. DSH Canvas is the canvas interface built around it.',
         affiliation: 'DSH Canvas is an independent project built on the open-source DeepSeek Harness (DSH). It is not affiliated with, endorsed by, or sponsored by DeepSeek.',
-        licenses: 'Third-party open-source licenses are included in the app (NOTICES.txt).', allReleases: 'All releases',
+        licenses: 'Third-party open-source licenses are included in the app (NOTICES.txt).', allReleases: 'All releases', footPrivacy: 'Privacy Policy', footTerms: 'Terms of Use', footSupport: 'Feedback & support',
         none: 'The first release is not available yet.', version: 'Version {v} · {size} MB · {date}'
       },
       zh: {
@@ -443,6 +460,7 @@
         eyebrow: "免费的 macOS 桌面应用",
         requirements: "免费。适用于 Apple 芯片的 Mac，macOS 13.5 及以上。",
         instLead: "免费。适用于 macOS 13.5 及以上的 Apple 芯片 Mac。",
+        storyTitle: "为什么要做 DSH Canvas", aWhy: "<p>想象一个你经常做的事：让 AI 帮你快速读懂一本书。你问《思考，快与慢》的核心观点，回答一次给了你五条：</p><ol><li>两套思维系统</li><li>启发式与偏差</li><li>前景理论</li><li>过度自信</li><li>体验自我与记忆自我</li></ol><p>你对第一条有兴趣，就追问它。回答里又有几个小点，你再挑一个往下问，几轮之后，你已经钻进了一个细节里。这时你想起来：<em>刚才第三条，前景理论，到底讲了什么？</em>它在聊天记录很靠上的地方。你往上翻、扫一眼、找不到位置，常常就放弃了。其余四条观点从此被忘掉，整本书的全貌也从来没有在你眼前完整出现过。</p><p>让智能体做真正的事情时也是一样。请它规划一次软件发布，回答里同时有好几个决策：版本范围、灰度方案、定价调整、对外公告。你先深入灰度方案，又深入其中一个风险，等你问完，其他几个决策早已滚出了视线。</p><p>几乎每一次认真的对话都是这样：回答是一组要点，而不是一条线，我们一次只会追着其中一两个往下问。聊天窗口只有一条线，所以没被追问的内容都被埋掉了。</p><p><strong>DSH Canvas 要解决的正是这个问题。</strong>每个回复都是画布上的一张卡片，每次追问都从你选定的位置长出一条新分支。五条观点会并排保留为五条分支。想看前景理论时，点到那个位置，就在原地继续问，之前的回答原样保留。聊完之后，这棵树就是你探索过的一切的地图，而不是一长串要重新翻阅的滚动记录。</p>",
         q0: "免费吗？",
         a0: "免费。DSH Canvas 可以免费下载和使用。你只需要为自己的 key 发出的请求，向模型提供方付费。",
         whyTitle: "聊天是一条线，你的问题不是。",
@@ -487,7 +505,7 @@
         modelsTitle: '用你已经在用的模型', modelsLead: '在设置里选择提供方，粘贴 API key 就可以，不需要其他配置。',
         custom: '任何兼容 OpenAI 的接口',
         modelsNote: '自定义接口只需填写接口地址和 key。模型列表会自动获取；如果接口不提供列表，也可以手动添加模型名称。',
-        privTitle: '你的对话只属于你', privLead: 'DSH Canvas 完全运行在你的 Mac 上。唯一的网络往来，是应用与你选择的模型提供方之间。',
+        privTitle: '你的对话只属于你', privLead: 'DSH Canvas 运行在你的 Mac 上。你的对话只会发给你选择的模型提供方，我们没有任何服务器接收它们。',
         p1t: '保存在你的电脑上。', p1d: '画布和设置是你用户资源库里的普通文件，删掉文件夹就全部清除。',
         p2t: 'key 不会经过我们。', p2d: '你的 API key 只会发送给你选择的提供方。我们没有任何服务器会看到它。',
         p3t: '不对其他程序开放。', p3d: '应用的本地服务只在本机监听，端口随机，并且需要只有应用自己的窗口才持有的密钥。',
@@ -502,7 +520,7 @@
         q3: '数据存放在哪里？', a3: '存放在 <code>~/Library/Application Support/DSH Canvas</code>。删除这个文件夹就会清除你的画布和设置。',
         q4: 'DSH 是什么？', a4: 'DSH 是一个开源的智能体引擎，DSH Canvas 在本机运行它来与模型对话、处理你的文件。DSH Canvas 是围绕它构建的画布界面。',
         affiliation: 'DSH Canvas 是基于开源项目 DeepSeek Harness（DSH）构建的独立项目，与 DeepSeek 没有隶属、认可或赞助关系。',
-        licenses: '应用内附带第三方开源许可声明（NOTICES.txt）。', allReleases: '全部版本',
+        licenses: '应用内附带第三方开源许可声明（NOTICES.txt）。', allReleases: '全部版本', footPrivacy: '隐私政策', footTerms: '使用条款', footSupport: '反馈与支持',
         none: '首个版本还没有发布。', version: '版本 {v} · {size} MB · {date}'
       }
     };
