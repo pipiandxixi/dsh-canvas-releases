@@ -338,11 +338,10 @@
         <div>
           <ol class="install-list">
             <li data-i18n="i1">Open the downloaded <code>.dmg</code> and drag DSH Canvas into Applications.</li>
-            <li data-i18n="i2">Open it from Applications. Because the app is not yet signed with an Apple Developer ID, macOS may stop the first launch.</li>
-            <li data-i18n="i3">If it does, open System Settings → Privacy &amp; Security and choose “Open Anyway”. If macOS says the app is damaged, run this in Terminal and open it again:</li>
+            <li data-i18n="i2">Open it from Applications. macOS will say the app was downloaded from the internet and ask you to confirm; choose Open.</li>
+            <li data-i18n="i3">That’s the only prompt. DSH Canvas is signed with an Apple Developer ID and notarized by Apple.</li>
           </ol>
-          <pre><code>xattr -cr "/Applications/DSH Canvas.app"</code></pre>
-          <p class="note" data-i18n="signNote">A signed and notarized build, with automatic updates, is on the way.</p>
+          <p class="note" data-i18n="signNote">Updates are manual for now: download the latest version here and replace the app in Applications. Your canvases and settings are kept.</p>
         </div>
       </div>
     </section>
@@ -426,9 +425,9 @@
         p3t: 'Closed to other programs.', p3d: 'The app’s local service listens only on your machine, on a random port, and requires a secret that only its own window holds.',
         instTitle: 'Get DSH Canvas',
         i1: 'Open the downloaded <code>.dmg</code> and drag DSH Canvas into Applications.',
-        i2: 'Open it from Applications. Because the app is not yet signed with an Apple Developer ID, macOS may stop the first launch.',
-        i3: 'If it does, open System Settings → Privacy &amp; Security and choose “Open Anyway”. If macOS says the app is damaged, run this in Terminal and open it again:',
-        signNote: 'A signed and notarized build, with automatic updates, is on the way.',
+        i2: "Open it from Applications. macOS will say the app was downloaded from the internet and ask you to confirm; choose Open.",
+        i3: "That’s the only prompt. DSH Canvas is signed with an Apple Developer ID and notarized by Apple.",
+        signNote: "Updates are manual for now: download the latest version here and replace the app in Applications. Your canvases and settings are kept.",
         faqTitle: 'Questions',
         q1: 'Is there a Windows or Intel Mac version?', a1: 'Not yet. The first release is for Apple silicon Macs. Other platforms will follow.',
         q2: 'Do I need an account?', a2: 'No. You need an API key from the model provider you want to use, and nothing else.',
@@ -493,9 +492,9 @@
         p3t: '不对其他程序开放。', p3d: '应用的本地服务只在本机监听，端口随机，并且需要只有应用自己的窗口才持有的密钥。',
         instTitle: '获取 DSH Canvas',
         i1: '打开下载的 <code>.dmg</code>，把 DSH Canvas 拖进“应用程序”。',
-        i2: '从“应用程序”里打开。由于应用还没有用 Apple 开发者证书签名，macOS 可能会拦截第一次启动。',
-        i3: '如果被拦截，请打开“系统设置 → 隐私与安全性”，点“仍要打开”。如果提示应用已损坏，在终端运行下面这行命令，再重新打开：',
-        signNote: '经过签名和公证、并支持自动更新的版本正在准备中。',
+        i2: "从“应用程序”里打开。macOS 会提示这是从互联网下载的应用，请你确认，点“打开”即可。",
+        i3: "只会有这一次提示。DSH Canvas 已用 Apple 开发者证书签名，并通过了 Apple 的公证。",
+        signNote: "目前更新需要手动完成：回到这里下载最新版本，替换“应用程序”里的旧版本即可，你的画布和设置都会保留。",
         faqTitle: '常见问题',
         q1: '有 Windows 或 Intel Mac 的版本吗？', a1: '暂时没有。第一个版本只支持 Apple 芯片的 Mac，其他平台之后会陆续提供。',
         q2: '需要注册账号吗？', a2: '不需要。你只需要自己想用的模型提供方的 API key。',
