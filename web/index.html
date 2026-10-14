@@ -58,6 +58,7 @@
     /* hero */
     .hero { padding: 64px 0 40px; background: radial-gradient(ellipse 70% 60% at 50% 0%, var(--glow), transparent 70%); }
     .hero-text { text-align: center; max-width: 720px; margin: 0 auto; }
+    .eyebrowVersion { font-weight: 700; margin-left: 8px; padding-left: 10px; border-left: 1px solid currentColor; }
     .eyebrow { display: inline-block; font-size: 0.85rem; color: var(--accent); background: var(--accent-soft); padding: 4px 12px; border-radius: 999px; font-weight: 600; margin-bottom: 18px; }
     h1 { font-size: clamp(2.3rem, 6vw, 3.6rem); line-height: 1.08; letter-spacing: -0.035em; margin: 0 0 18px; }
     .lead { font-size: 1.2rem; color: var(--muted); margin: 0 auto 28px; max-width: 600px; }
@@ -167,7 +168,7 @@
     <section class="hero">
       <div class="wrap">
         <div class="hero-text">
-          <span class="eyebrow" data-i18n="eyebrow">Free desktop app for macOS</span>
+          <span class="eyebrow"><span data-i18n="eyebrow">Free desktop app for macOS</span><b class="eyebrowVersion"></b></span>
           <h1 data-i18n="h1">Think in branches.</h1>
           <p class="lead" data-i18n="lead">A chat makes you follow one question at a time. DSH Canvas lays a topic out in layers on a canvas, so you can go back to any point and ask the part you skipped.</p>
           <div class="cta">
@@ -519,6 +520,7 @@
       for (const meta of document.querySelectorAll('.downloadMeta')) {
         meta.textContent = release ? (release.version ? text[lang].version.replace('{v}', release.version).replace('{size}', release.size).replace('{date}', release.date) : '') : text[lang].none;
       }
+      for (const badge of document.querySelectorAll('.eyebrowVersion')) badge.textContent = release && release.version ? `v${release.version}` : '';
       for (const button of document.querySelectorAll('.downloadButton')) {
         if (release) { button.href = release.url; button.removeAttribute('aria-disabled'); }
         else { button.href = '#install'; button.setAttribute('aria-disabled', 'true'); }
