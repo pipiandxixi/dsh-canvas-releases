@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Report a bug · DSH Canvas</title>
-<meta name="description" content="Report a problem with DSH Canvas. Your app version and macOS version are filled in for you.">
+<title>Report a bug · Thinkfork</title>
+<meta name="description" content="Report a problem with Thinkfork. Your app version and macOS version are filled in for you.">
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/svg+xml" href="logo.svg"><link rel="stylesheet" href="legal.css">
 </head>
 <body>
-<header><div class="bar"><a class="brand" href="./"><img src="logo.svg" alt="">DSH Canvas</a><div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en">English</button>|<button type="button" data-lang="zh">中文</button></div></div></header>
+<header><div class="bar"><a class="brand" href="./"><img src="logo.svg" alt="">Thinkfork</a><div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en">English</button>|<button type="button" data-lang="zh">中文</button></div></div></header>
 <main>
 <div class="en">
 <h1>Report a bug</h1>
@@ -50,7 +50,7 @@
     const parts = ['**What happened**', get('what')];
     if (get('steps')) parts.push('', '**Steps to reproduce**', get('steps'));
     if (get('expected')) parts.push('', '**Expected**', get('expected'));
-    parts.push('', '---', `DSH Canvas ${version} · ${system}`);
+    parts.push('', '---', `Thinkfork ${version} · ${system}`);
     return parts.join('\n');
   };
   const title = () => `[Bug] ${get('what').split('\n')[0].slice(0, 70)}`;

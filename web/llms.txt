@@ -1,17 +1,17 @@
-# DSH Canvas
+# Thinkfork
 
-> DSH Canvas is a free desktop app for macOS (Apple silicon, macOS 13.5 or later) that turns AI conversations into a tree on an infinite canvas. Instead of one linear chat, every reply is a card you can branch from, so you can return to any earlier point and ask the part you skipped, and see the whole topic as a map. It runs on your Mac, uses the model provider and API key you choose (for example DeepSeek or OpenRouter), and stores canvases as local files. It is built on the open-source DeepSeek Harness (DSH) engine and is an independent project, not affiliated with DeepSeek.
+> Thinkfork is a free desktop app for macOS (Apple silicon, macOS 13.5 or later) that turns AI conversations into a tree on an infinite canvas. Instead of one linear chat, every reply is a card you can branch from, so you can return to any earlier point and ask the part you skipped, and see the whole topic as a map. It runs on your Mac, uses the model provider and API key you choose (for example DeepSeek or OpenRouter), and stores canvases as local files. It is built on the open-source DeepSeek Harness (DSH) engine and is an independent project, not affiliated with DeepSeek.
 
 ## Key facts
 - Price: free for personal and commercial use; not for resale or redistribution as another product.
 - Platform: macOS on Apple silicon (Intel and Windows not available yet).
 - Privacy: conversations go only to the model provider you configure; the project runs no server that receives them; no analytics or cookies on the website.
 - Account: none required; you only need an API key from a model provider.
-- Download: https://github.com/pipiandxixi/dsh-canvas-releases/releases/latest/download/DSH-Canvas-arm64.dmg (signed and notarized by Apple)
+- Download: https://github.com/pipiandxixi/dsh-canvas-releases/releases/latest/download/Thinkfork-arm64.dmg (signed and notarized by Apple)
 
 ## Pages
-- [Home](https://pipiandxixi.github.io/dsh-canvas-releases/): what it is, how it works, features, FAQ
-- [Privacy Policy](https://pipiandxixi.github.io/dsh-canvas-releases/privacy.html)
-- [Terms of Use](https://pipiandxixi.github.io/dsh-canvas-releases/terms.html)
+- [Home](https://thinkfork.cc/): what it is, how it works, features, FAQ
+- [Privacy Policy](https://thinkfork.cc/privacy.html)
+- [Terms of Use](https://thinkfork.cc/terms.html)
 - [Releases and changelog](https://github.com/pipiandxixi/dsh-canvas-releases/releases)
 - [Feedback and bug reports](https://github.com/pipiandxixi/dsh-canvas-releases/issues)

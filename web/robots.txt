@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /report.html
 
-Sitemap: https://pipiandxixi.github.io/dsh-canvas-releases/sitemap.xml
+Sitemap: https://thinkfork.cc/sitemap.xml
