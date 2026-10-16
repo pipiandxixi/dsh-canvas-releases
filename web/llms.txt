@@ -11,6 +11,7 @@
 
 ## Pages
 - [Home](https://thinkfork.cc/): what it is, how it works, features, FAQ
+- [Download and system requirements](https://thinkfork.cc/download.html): Apple silicon check, install steps
 - [Privacy Policy](https://thinkfork.cc/privacy.html)
 - [Terms of Use](https://thinkfork.cc/terms.html)
 - [Releases and changelog](https://github.com/pipiandxixi/dsh-canvas-releases/releases)

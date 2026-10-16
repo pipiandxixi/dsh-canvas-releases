@@ -182,7 +182,7 @@
       </nav>
       <div class="nav-end">
         <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en">English</button>|<button type="button" data-lang="zh">中文</button></div>
-        <a class="button small" href="#install" data-i18n="navDownload">Download</a>
+        <a class="button small" href="download.html" data-i18n="navDownload">Download</a>
       </div>
     </div>
   </header>
@@ -195,7 +195,7 @@
           <h1 data-i18n="h1">Think in branches.</h1>
           <p class="lead" data-i18n="lead">A chat makes you follow one question at a time. Thinkfork lays a topic out in layers on a canvas, so you can go back to any point and ask the part you skipped.</p>
           <div class="cta">
-            <a class="button downloadButton" href="#install" aria-disabled="true" data-i18n="download">Download for macOS</a>
+            <a class="button downloadButton" href="download.html" data-i18n="download">Download for macOS</a>
             <a class="button ghost" href="#how" data-i18n="seeHow">See how it works</a>
           </div>
           <p class="meta downloadMeta"></p>
@@ -349,7 +349,7 @@
         <div>
           <h2 data-i18n="instTitle">Get Thinkfork</h2>
           <p class="section-lead" data-i18n="instLead">Free. For Apple silicon Macs running macOS 13.5 or later.</p>
-          <a class="button downloadButton" href="#install" aria-disabled="true" data-i18n="download">Download for macOS</a>
+          <a class="button downloadButton" href="download.html" data-i18n="download">Download for macOS</a>
           <p class="meta downloadMeta"></p>
         </div>
         <div>
@@ -539,10 +539,6 @@
         meta.textContent = release ? (release.version ? text[lang].version.replace('{v}', release.version).replace('{size}', release.size).replace('{date}', release.date) : '') : text[lang].none;
       }
       for (const badge of document.querySelectorAll('.eyebrowVersion')) badge.textContent = release && release.version ? `v${release.version}` : '';
-      for (const button of document.querySelectorAll('.downloadButton')) {
-        if (release) { button.href = release.url; button.removeAttribute('aria-disabled'); }
-        else { button.href = '#install'; button.setAttribute('aria-disabled', 'true'); }
-      }
     }
     for (const button of document.querySelectorAll('[data-lang]')) {
       button.addEventListener('click', () => { lang = button.dataset.lang; try { localStorage.setItem('lang', lang); } catch {} render(); });

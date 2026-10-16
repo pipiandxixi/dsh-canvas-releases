@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download Thinkfork for Mac</title>
+<meta name="description" content="Download Thinkfork, the free macOS app that turns AI conversations into a branching tree on a canvas. For Apple silicon Macs (M1 or later), macOS 13.5 or later."><meta name="robots" content="index,follow">
+<link rel="canonical" href="https://thinkfork.cc/download.html"><link rel="icon" type="image/svg+xml" href="logo.svg"><link rel="stylesheet" href="legal.css">
+</head>
+<body>
+<header><div class="bar"><a class="brand" href="./"><img src="logo.svg" alt="">Thinkfork</a><div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en">English</button>|<button type="button" data-lang="zh">中文</button></div></div></header>
+<main>
+<div class="en">
+<h1>Download Thinkfork</h1>
+<p class="summary">Free. For <b>Apple silicon Macs</b> (M1 or later) running <b>macOS 13.5 or later</b>. Intel Macs and Windows are not supported yet.</p>
+<div class="dl"><a class="btn" href="https://github.com/pipiandxixi/dsh-canvas-releases/releases/latest/download/Thinkfork-arm64.dmg">Download for Mac (Apple silicon)</a><span class="meta"></span></div>
+<h2>First, check your Mac</h2>
+<div class="check">
+<ol class="dl-steps">
+<li>Click the Apple menu in the top-left corner, then choose <b>About This Mac</b>.</li>
+<li>Look at <b>Chip</b>. If it says <b>Apple M1, M2, M3, M4</b> or later, this download is for you.</li>
+<li>If it says <b>Processor: Intel</b>, this version will not open on your Mac.</li>
+<li>Also check the macOS version: it must be 13.5 (Ventura) or later.</li>
+</ol>
+</div>
+<h2>Install</h2>
+<ol class="dl-steps">
+<li>Open the downloaded <code>.dmg</code> and drag Thinkfork into Applications.</li>
+<li>Open it from Applications. macOS will say the app was downloaded from the internet and ask you to confirm; choose Open.</li>
+<li>That’s the only prompt. Thinkfork is signed with an Apple Developer ID and notarized by Apple.</li>
+<li>On first launch, open Settings and add the API key of the model provider you want to use. Thinkfork needs no account of its own.</li>
+</ol>
+<h2>Updates</h2>
+<p>Thinkfork tells you when a newer version is available (you can turn this off in Settings &gt; About). Updates are manual for now: download the latest version here and replace the app in Applications. Your canvases and settings are kept.</p>
+<h2>Other platforms</h2>
+<p>Thinkfork is built for Apple silicon only for now. Intel Macs and Windows are not available.</p>
+<p>See the <a href="https://github.com/pipiandxixi/dsh-canvas-releases/releases">release notes</a>, the <a href="privacy.html">Privacy Policy</a> and the <a href="terms.html">Terms of Use</a>.</p>
+</div>
+<div class="zh">
+<h1>下载 Thinkfork</h1>
+<p class="summary">免费。适用于 <b>Apple 芯片的 Mac</b>(M1 及更新),系统 <b>macOS 13.5 或更高</b>。暂不支持 Intel Mac 和 Windows。</p>
+<div class="dl"><a class="btn" href="https://github.com/pipiandxixi/dsh-canvas-releases/releases/latest/download/Thinkfork-arm64.dmg">下载 Mac 版(Apple 芯片)</a><span class="meta"></span></div>
+<h2>先确认你的 Mac</h2>
+<div class="check">
+<ol class="dl-steps">
+<li>点屏幕左上角的苹果菜单,选择<b>“关于本机”</b>。</li>
+<li>看<b>“芯片”</b>一栏。如果写着 <b>Apple M1、M2、M3、M4</b> 或更新的型号,就可以用这个安装包。</li>
+<li>如果写的是<b>“处理器:Intel”</b>,这个版本在你的 Mac 上打不开。</li>
+<li>同时确认 macOS 版本:需要 13.5(Ventura)或更高。</li>
+</ol>
+</div>
+<h2>安装</h2>
+<ol class="dl-steps">
+<li>打开下载的 <code>.dmg</code>,把 Thinkfork 拖进“应用程序”。</li>
+<li>从“应用程序”里打开。macOS 会提示这是从互联网下载的应用,请你确认,点“打开”即可。</li>
+<li>只会有这一次提示。Thinkfork 已用 Apple 开发者 ID 签名,并通过 Apple 公证。</li>
+<li>第一次启动后,打开“设置”,填入你要使用的模型提供方的 API key。Thinkfork 本身不需要账号。</li>
+</ol>
+<h2>更新</h2>
+<p>有新版本时 Thinkfork 会提示你(可在“设置 &gt; 关于”里关闭)。目前更新需要手动完成:回到这里下载最新版本,替换“应用程序”里的旧版本即可,你的画布和设置都会保留。</p>
+<h2>其他平台</h2>
+<p>目前 Thinkfork 只提供 Apple 芯片版本,暂无 Intel Mac 和 Windows 版。</p>
+<p>另见<a href="https://github.com/pipiandxixi/dsh-canvas-releases/releases">版本说明</a>、<a href="privacy.html">隐私政策</a>和<a href="terms.html">使用条款</a>。</p>
+</div>
+</main>
+<script src="legal.js"></script>
+<script>
+fetch('release.json').then(r => r.ok ? r.json() : null).then((d) => {
+  if (!d || !/^\d+\.\d+\.\d+$/.test(String(d.version))) return;
+  const date = /^\d{4}-\d{2}-\d{2}$/.test(String(d.released)) ? d.released : '';
+  const en = document.querySelector('.en .dl .meta'), zh = document.querySelector('.zh .dl .meta');
+  en.textContent = `Version ${d.version}${date ? ` · ${date}` : ''}`;
+  zh.textContent = `版本 ${d.version}${date ? ` · ${date}` : ''}`;
+}).catch(() => {});
+</script>
+</body>
+</html>
