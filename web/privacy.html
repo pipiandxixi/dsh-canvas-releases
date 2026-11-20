@@ -10,19 +10,20 @@
 <header><div class="bar"><a class="brand" href="./"><img src="logo.svg" alt="">Thinkfork</a><div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en">English</button>|<button type="button" data-lang="zh">中文</button></div></div></header>
 <main>
 <div class="en">
-<h1>Privacy Policy</h1><p class="updated">Last updated: 16 October 2026</p>
+<h1>Privacy Policy</h1><p class="updated">Last updated: 19 November 2026</p>
 <p class="summary">Thinkfork runs on your Mac. We operate no servers for it, and we do not collect, receive or store your conversations, files, API keys or usage data.</p>
 <h2>What stays on your computer</h2>
 <ul>
-<li>Your canvases, settings and provider configuration, in <code>~/Library/Application Support/Thinkfork</code>.</li>
-<li>Your API key, in a file in that folder that only your user account can read.</li>
-<li>Session records created by the assistant engine, in <code>~/.dsh</code>.</li>
+<li>Your canvases, settings, attachments and recovery snapshots are stored locally. The About page shows the app data directory. Mac App Store builds use the app’s sandbox container.</li>
+<li>Model API keys and Thinkfork-managed MCP credentials are stored in local encrypted records protected by macOS Keychain.</li>
+<li>Session records created by the assistant engine are also stored locally.</li>
 </ul>
-<p>Deleting these folders removes the data. Nothing is synced anywhere.</p>
+<p>To remove app-managed local data, locate the data directory shown in About, then quit Thinkfork before removing it. Independently saved workspace files, backups and data retained by external providers are managed separately.</p>
 <h2>What is sent, and to whom</h2>
 <ul>
 <li><b>Your chosen model provider.</b> Your messages, the parts of your files and command results the assistant needs, and your API key are sent directly from your Mac to the provider you configure (for example DeepSeek, OpenRouter, OpenAI, Anthropic, Google, or an endpoint you enter). We are not a party to that exchange. The provider’s own privacy policy and terms apply to it.</li>
-<li><b>Update check.</b> When the app starts, it requests one small file (<code>release.json</code>) from this website to see whether a newer version exists. You can turn this off in Settings &gt; About. The request contains no identifier, canvas or conversation; as with any web request, the host (GitHub Pages) can see your IP address.</li>
+<li><b>Remote MCP services you enable.</b> The service receives connection requests and the tool arguments for calls made on your behalf. Its own privacy policy and retention rules apply.</li>
+<li><b>Update check.</b> The Mac App Store edition gets updates through the App Store. The website edition can request a small file (<code>release.json</code>) from this website to see whether a newer version exists. You can turn this off in Settings &gt; About. The request contains no identifier, canvas or conversation; as with any web request, the host (GitHub Pages) can see your IP address.</li>
 <li><b>Model lists.</b> When you ask the app to fetch a provider’s model list, it contacts that provider.</li>
 <li><b>Things you ask the assistant to do.</b> If you ask it to browse the web, run commands, or connect to a service, those actions use the network as you directed.</li>
 </ul>
@@ -36,19 +37,20 @@
 <p>If this policy changes, the new version will be posted here with a new date. Questions: open an issue at <a href="https://github.com/pipiandxixi/dsh-canvas-releases/issues">github.com/pipiandxixi/dsh-canvas-releases</a>.</p>
 </div>
 <div class="zh">
-<h1>隐私政策</h1><p class="updated">最近更新:2026 年 10 月 16 日</p>
+<h1>隐私政策</h1><p class="updated">最近更新:2026 年 11 月 19 日</p>
 <p class="summary">Thinkfork 运行在你的 Mac 上。我们没有为它运行任何服务器,也不会收集、接收或保存你的对话、文件、API key 和使用数据。</p>
 <h2>保存在你电脑上的内容</h2>
 <ul>
-<li>画布、设置和提供方配置,位于 <code>~/Library/Application Support/Thinkfork</code>。</li>
-<li>你的 API key,保存在该文件夹里的一个文件中,只有你的用户账户可以读取。</li>
-<li>助手引擎产生的会话记录,位于 <code>~/.dsh</code>。</li>
+<li>画布、设置、附件和恢复快照保存在本机。“关于”页面会显示数据目录，Mac App Store 版本使用应用的沙盒容器。</li>
+<li>模型 API Key 与 Thinkfork 管理的 MCP 凭据保存在受 macOS 钥匙串保护的本机加密记录中。</li>
+<li>助手引擎生成的会话记录也保存在本机。</li>
 </ul>
-<p>删除这些文件夹就会清除数据。没有任何内容会被同步到别处。</p>
+<p>如需移除应用管理的本机数据，请先在“关于”页面找到数据目录，再退出 Thinkfork 后移除。单独保存的工作区文件、备份和远程服务保留的数据分别管理。</p>
 <h2>会发送什么、发送给谁</h2>
 <ul>
 <li><b>你选择的模型提供方。</b>你的消息、助手需要用到的文件片段和命令结果,以及你的 API key,会直接从你的 Mac 发送给你配置的提供方(例如 DeepSeek、OpenRouter、OpenAI、Anthropic、Google,或你填写的接口)。我们不参与这一过程,适用的是该提供方自己的隐私政策和条款。</li>
-<li><b>检查更新。</b>应用启动时会向本网站请求一个很小的文件(<code>release.json</code>),查看是否有新版本。你可以在“设置 &gt; 关于”里关闭。请求不包含任何标识、画布或对话内容;和所有网络请求一样,托管方(GitHub Pages)能看到你的 IP 地址。</li>
+<li><b>你启用的远程 MCP 服务。</b>服务会收到连接请求，以及代表你调用工具时传入的参数。服务自己的隐私政策与保留规则适用。</li>
+<li><b>检查更新。</b>Mac App Store 版本通过 App Store 更新。官网下载版可向本网站请求一个小文件(<code>release.json</code>),查看是否有新版本。你可以在“设置 &gt; 关于”里关闭。请求不包含任何标识、画布或对话内容;和所有网络请求一样,托管方(GitHub Pages)能看到你的 IP 地址。</li>
 <li><b>模型列表。</b>当你让应用获取某个提供方的模型列表时,它会连接该提供方。</li>
 <li><b>你要求助手做的事。</b>如果你让它浏览网页、运行命令或连接某个服务,这些操作会按你的指示使用网络。</li>
 </ul>
