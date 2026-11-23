@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Mac app: AI conversations as a tree on a canvas.">
   <meta name="twitter:image" content="https://thinkfork.cc/og.png">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Thinkfork", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS 15 or later (Apple silicon)", "description": "A desktop app that turns AI conversations into a tree on a canvas. Branch from any reply, bring your own model, and keep everything on your Mac.", "url": "https://thinkfork.cc/", "image": "https://thinkfork.cc/og.png", "installUrl": "https://apps.apple.com/app/id6836753524", "offers": {"@type": "Offer", "price": "9.99", "priceCurrency": "USD", "url": "https://apps.apple.com/app/id6836753524"}, "inLanguage": ["en", "zh-CN"]}</script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "Thinkfork is a one-time purchase on the Mac App Store (US$9.99; the price can vary by country). You pay your model provider separately for the requests you make with your own key."}}, {"@type": "Question", "name": "Is there a Windows or Intel Mac version?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. The first release is for Apple silicon Macs. Other platforms will follow."}}, {"@type": "Question", "name": "Do I need an account?", "acceptedAnswer": {"@type": "Answer", "text": "No. You need an API key from the model provider you want to use, and nothing else."}}, {"@type": "Question", "name": "Where is my data stored?", "acceptedAnswer": {"@type": "Answer", "text": "In ~/Library/Application Support/Thinkfork. Removing that folder removes your canvases and settings."}}, {"@type": "Question", "name": "What is DSH?", "acceptedAnswer": {"@type": "Answer", "text": "DSH is the open-source agent engine that Thinkfork runs locally to talk to models and work with your files. Thinkfork is the canvas interface built around it."}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "Thinkfork is a one-time purchase on the Mac App Store (US$9.99; the price can vary by country). You pay your model provider separately for the requests you make with your own key."}}, {"@type": "Question", "name": "Is there a Windows or Intel Mac version?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. The first release is for Apple silicon Macs. Other platforms will follow."}}, {"@type": "Question", "name": "Do I need an account?", "acceptedAnswer": {"@type": "Answer", "text": "No. You need an API key from the model provider you want to use, and nothing else."}}, {"@type": "Question", "name": "Where is my data stored?", "acceptedAnswer": {"@type": "Answer", "text": "In the app’s own folder on your Mac (a sandbox container). Settings > About shows the exact location. Removing that folder removes your canvases and settings."}}, {"@type": "Question", "name": "What is DSH?", "acceptedAnswer": {"@type": "Answer", "text": "DSH is the open-source agent engine that Thinkfork runs locally to talk to models and work with your files. Thinkfork is the canvas interface built around it."}}]}</script>
   <link rel="icon" type="image/png" href="logo.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
   <style>
     :root {
@@ -333,7 +333,8 @@
       <div class="wrap two">
         <div>
           <h2 data-i18n="privTitle">Your conversations stay yours</h2>
-          <p class="section-lead" style="margin-bottom:0" data-i18n="privLead">Thinkfork runs on your Mac. Your conversations go only to the model provider you choose, and we run no server that receives them.</p>
+          <p class="section-lead" style="margin-bottom:14px" data-i18n="privLead">Thinkfork runs on your Mac. Your conversations go only to the model provider you choose, and we run no server that receives them.</p>
+          <p><a href="data.html" data-i18n="privMore">See exactly what is sent, and to whom</a></p>
         </div>
         <ul class="checks">
           <li><strong data-i18n="p1t">Stored on your computer.</strong> <span data-i18n="p1d">Canvases and settings are plain files in your user library. Delete the folder and they’re gone.</span></li>
@@ -368,7 +369,7 @@
         <details><summary data-i18n="q0">How much does it cost?</summary><p data-i18n="a0">Thinkfork is a one-time purchase on the Mac App Store (US$9.99; the price can vary by country). You pay your model provider separately for the requests you make with your own key.</p></details>
         <details><summary data-i18n="q1">Is there a Windows or Intel Mac version?</summary><p data-i18n="a1">Not yet. The first release is for Apple silicon Macs. Other platforms will follow.</p></details>
         <details><summary data-i18n="q2">Do I need an account?</summary><p data-i18n="a2">No. You need an API key from the model provider you want to use, and nothing else.</p></details>
-        <details><summary data-i18n="q3">Where is my data stored?</summary><p data-i18n="a3">In <code>~/Library/Application Support/Thinkfork</code>. Removing that folder removes your canvases and settings.</p></details>
+        <details><summary data-i18n="q3">Where is my data stored?</summary><p data-i18n="a3">In the app’s own folder on your Mac (a sandbox container). Settings &gt; About shows the exact location. Removing that folder removes your canvases and settings.</p></details>
         <details><summary data-i18n="q4">What is DSH?</summary><p data-i18n="a4">DSH is the open-source agent engine that Thinkfork runs locally to talk to models and work with your files. Thinkfork is the canvas interface built around it.</p></details>
       </div>
     </section>
@@ -379,7 +380,7 @@
       <div class="foot-top"><img src="logo.png" alt="">Thinkfork</div>
       <p data-i18n="affiliation">Thinkfork is an independent project built on the open-source DeepSeek Harness (DSH). It is not affiliated with, endorsed by, or sponsored by DeepSeek.</p>
       <p data-i18n="licenses">Third-party open-source licenses are included in the app (<a href="notices.txt">NOTICES.txt</a>).</p>
-      <p><a href="https://apps.apple.com/app/id6836753524" data-i18n="allReleases">Mac App Store</a> · <a href="privacy.html" data-i18n="footPrivacy">Privacy Policy</a> · <a href="terms.html" data-i18n="footTerms">Terms of Use</a> · <a href="report.html" data-i18n="footSupport">Feedback &amp; support</a></p>
+      <p><a href="https://apps.apple.com/app/id6836753524" data-i18n="allReleases">Mac App Store</a> · <a href="data.html" data-i18n="footData">Your data</a> · <a href="privacy.html" data-i18n="footPrivacy">Privacy Policy</a> · <a href="terms.html" data-i18n="footTerms">Terms of Use</a> · <a href="report.html" data-i18n="footSupport">Feedback &amp; support</a></p>
     </div>
   </footer>
 
@@ -436,9 +437,9 @@
         custom: 'Any OpenAI-compatible endpoint',
         modelsNote: 'For a custom endpoint, enter its base URL and key. The model list is fetched automatically, and you can add model names by hand if the endpoint doesn’t publish one.',
         privTitle: 'Your conversations stay yours', privLead: 'Thinkfork runs on your Mac. Your conversations go only to the model provider you choose, and we run no server that receives them.',
-        p1t: 'Stored on your computer.', p1d: 'Canvases and settings are plain files in your user library. Delete the folder and they’re gone.',
+        p1t: 'Stored on your computer.', p1d: 'Canvases and settings are plain files in the app’s own folder. Delete the folder and they’re gone.',
         p2t: 'Key never leaves for us.', p2d: 'Your API key is sent only to the provider you picked. We run no server that sees it.',
-        p3t: 'Closed to other programs.', p3d: 'The app’s local service listens only on your machine, on a random port, and requires a secret that only its own window holds.',
+        privMore: 'See exactly what is sent, and to whom', p3t: 'Closed to other programs.', p3d: 'The app’s local service listens only on your machine, on a random port, and requires a secret that only its own window holds.',
         instTitle: 'Get Thinkfork',
         i1: 'Open the Mac App Store and search for Thinkfork.',
         i2: "Buy it once with your Apple Account. It installs like any other Mac app.",
@@ -447,10 +448,10 @@
         faqTitle: 'Questions',
         q1: 'Is there a Windows or Intel Mac version?', a1: 'Not yet. The first release is for Apple silicon Macs. Other platforms will follow.',
         q2: 'Do I need an account?', a2: 'No. You need an API key from the model provider you want to use, and nothing else.',
-        q3: 'Where is my data stored?', a3: 'In <code>~/Library/Application Support/Thinkfork</code>. Removing that folder removes your canvases and settings.',
+        q3: 'Where is my data stored?', a3: 'In the app’s own folder on your Mac (a sandbox container). Settings &gt; About shows the exact location. Removing that folder removes your canvases and settings.',
         q4: 'What is DSH?', a4: 'DSH is the open-source agent engine that Thinkfork runs locally to talk to models and work with your files. Thinkfork is the canvas interface built around it.',
         affiliation: 'Thinkfork is an independent project built on the open-source DeepSeek Harness (DSH). It is not affiliated with, endorsed by, or sponsored by DeepSeek.',
-        licenses: 'Third-party open-source licenses are included in the app (<a href="notices.txt">NOTICES.txt</a>).', allReleases: 'Mac App Store', footPrivacy: 'Privacy Policy', footTerms: 'Terms of Use', footSupport: 'Feedback & support',
+        licenses: 'Third-party open-source licenses are included in the app (<a href="notices.txt">NOTICES.txt</a>).', allReleases: 'Mac App Store', footData: 'Your data', footPrivacy: 'Privacy Policy', footTerms: 'Terms of Use', footSupport: 'Feedback & support',
         status: 'Under review by Apple. This link works once Thinkfork is live on the Mac App Store.', g1: 'Files the assistant delivers open in tabs beside the conversation.', g2: 'Connect remote tools and choose which ones to suggest for a message.', modelsMcp: 'Add remote MCP services too. When a service needs an account, sign in through your browser and Thinkfork keeps the sign-in on your Mac.'
       },
       zh: {
@@ -504,9 +505,9 @@
         custom: '任何兼容 OpenAI 的接口',
         modelsNote: '自定义接口只需填写接口地址和 key。模型列表会自动获取；如果接口不提供列表，也可以手动添加模型名称。',
         privTitle: '你的对话只属于你', privLead: 'Thinkfork 运行在你的 Mac 上。你的对话只会发给你选择的模型提供方，我们没有任何服务器接收它们。',
-        p1t: '保存在你的电脑上。', p1d: '画布和设置是你用户资源库里的普通文件，删掉文件夹就全部清除。',
+        p1t: '保存在你的电脑上。', p1d: '画布和设置是应用自己文件夹里的普通文件，删掉文件夹就全部清除。',
         p2t: 'key 不会经过我们。', p2d: '你的 API key 只会发送给你选择的提供方。我们没有任何服务器会看到它。',
-        p3t: '不对其他程序开放。', p3d: '应用的本地服务只在本机监听，端口随机，并且需要只有应用自己的窗口才持有的密钥。',
+        privMore: '查看会发送什么、发给谁', p3t: '不对其他程序开放。', p3d: '应用的本地服务只在本机监听，端口随机，并且需要只有应用自己的窗口才持有的密钥。',
         instTitle: '获取 Thinkfork',
         i1: '打开 Mac App Store，搜索 Thinkfork。',
         i2: "用你的 Apple 账户一次性购买，像其他 Mac 应用一样自动安装。",
@@ -515,10 +516,10 @@
         faqTitle: '常见问题',
         q1: '有 Windows 或 Intel Mac 的版本吗？', a1: '暂时没有。第一个版本只支持 Apple 芯片的 Mac，其他平台之后会陆续提供。',
         q2: '需要注册账号吗？', a2: '不需要。你只需要自己想用的模型提供方的 API key。',
-        q3: '数据存放在哪里？', a3: '存放在 <code>~/Library/Application Support/Thinkfork</code>。删除这个文件夹就会清除你的画布和设置。',
+        q3: '数据存放在哪里？', a3: '存放在应用自己的文件夹中（沙盒容器），确切位置可在“设置 &gt; 关于”里查看。删除这个文件夹就会清除你的画布和设置。',
         q4: 'DSH 是什么？', a4: 'DSH 是一个开源的智能体引擎，Thinkfork 在本机运行它来与模型对话、处理你的文件。Thinkfork 是围绕它构建的画布界面。',
         affiliation: 'Thinkfork 是基于开源项目 DeepSeek Harness（DSH）构建的独立项目，与 DeepSeek 没有隶属、认可或赞助关系。',
-        licenses: '应用内附带第三方开源许可声明（<a href="notices.txt">NOTICES.txt</a>）。', allReleases: 'Mac App Store', footPrivacy: '隐私政策', footTerms: '使用条款', footSupport: '反馈与支持',
+        licenses: '应用内附带第三方开源许可声明（<a href="notices.txt">NOTICES.txt</a>）。', allReleases: 'Mac App Store', footData: '你的数据', footPrivacy: '隐私政策', footTerms: '使用条款', footSupport: '反馈与支持',
         status: 'Apple 审核中。Thinkfork 在 Mac App Store 上线后，此链接即可使用。', g1: '助手交付的文件会在对话旁的页签中打开。', g2: '连接远程工具，并选择为某条消息建议使用哪些。', modelsMcp: '也可以添加远程 MCP 服务。服务需要账号时，通过浏览器登录即可，登录信息只保存在你的 Mac 上。'
       }
     };

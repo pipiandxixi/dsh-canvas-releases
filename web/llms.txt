@@ -12,6 +12,7 @@
 ## Pages
 - [Home](https://thinkfork.cc/): what it is, how it works, features, FAQ
 - [Get the app](https://thinkfork.cc/download.html): requirements and Mac App Store link
+- [Your data](https://thinkfork.cc/data.html): what stays on your Mac, what is sent and to whom
 - [Privacy Policy](https://thinkfork.cc/privacy.html)
 - [Terms of Use](https://thinkfork.cc/terms.html)
 - [Support and bug reports](https://thinkfork.cc/report.html)

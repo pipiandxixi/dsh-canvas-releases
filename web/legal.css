@@ -37,3 +37,12 @@ input[readonly] { color: var(--muted); background: var(--soft); }
 .dl .meta { color: var(--muted); font-size: .9rem; }
 .dl-steps { padding-left: 1.3em; }
 .check { border: 1px solid var(--border); border-radius: 12px; padding: 4px 18px; margin: 10px 0; }
+
+.flow { display: grid; gap: 14px; margin: 18px 0 8px; }
+.flow > div { border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px; background: color-mix(in srgb, var(--bg) 60%, var(--soft)); }
+.flow h3 { margin: 0 0 6px; font-family: var(--display); font-size: 1.05rem; }
+.flow dl { margin: 0; display: grid; grid-template-columns: 7.5em 1fr; gap: 4px 12px; font-size: .95rem; }
+.flow dt { color: var(--muted); }
+.flow dd { margin: 0; }
+.flow.local > div { border-style: dashed; }
+@media (max-width: 560px) { .flow dl { grid-template-columns: 1fr; } .flow dt { margin-top: 6px; } }

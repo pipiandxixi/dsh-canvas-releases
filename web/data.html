@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your data · Thinkfork</title>
+<meta name="description" content="Plain-language guide to what Thinkfork keeps on your Mac, what it sends, who receives it and how you control it."><meta name="robots" content="index,follow">
+<link rel="canonical" href="https://thinkfork.cc/data.html"><link rel="icon" type="image/png" href="logo.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="stylesheet" href="legal.css">
+</head>
+<body>
+<header><div class="bar"><a class="brand" href="./"><img src="logo.png" alt="">Thinkfork</a><div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en">English</button>|<button type="button" data-lang="zh">中文</button></div></div></header>
+<main>
+<div class="en">
+<h1>Your data</h1><p class="updated">Last updated: 23 November 2026</p>
+<p class="summary">Thinkfork runs on your Mac. We run no server that receives your conversations, files or keys. Your content goes only to the services you choose, when you ask. This page explains it in plain language; the <a href="privacy.html">Privacy Policy</a> is the formal text.</p>
+<h2>What leaves your Mac, and where it goes</h2>
+<div class="flow"><div><h3>Your messages and context</h3><dl><dt>What</dt><dd>Your question, the relevant conversation, background you added, files you attached and tool results the assistant needs.</dd><dt>Goes to</dt><dd>The model provider or endpoint you configured.</dd><dt>When</dt><dd>Only when you send a message or ask for a reply.</dd><dt>You control</dt><dd>Which provider and model, which files you attach, and you can stop a reply at any time.</dd><dt>Their rules</dt><dd>The provider’s own privacy policy and retention apply. Thinkfork is not a party to that exchange.</dd></dl></div><div><h3>Your API key</h3><dl><dt>What</dt><dd>The key for the provider you chose.</dd><dt>Goes to</dt><dd>Only that provider, to authenticate your requests.</dd><dt>Stored</dt><dd>Encrypted on your Mac, protected by the macOS Keychain.</dd><dt>You control</dt><dd>Remove it in Settings at any time.</dd></dl></div><div><h3>Remote tool services (MCP)</h3><dl><dt>What</dt><dd>Connection checks, and the arguments of the tools the assistant calls for you.</dd><dt>Goes to</dt><dd>The services you added and enabled.</dd><dt>When</dt><dd>While a connection is enabled, and when a tool is used.</dd><dt>You control</dt><dd>Disable or remove a connection at any time. Services that need an account use your own credentials.</dd></dl></div><div><h3>Browser sign-in (OAuth)</h3><dl><dt>What</dt><dd>A sign-in request and token exchanges for a service that needs an account.</dd><dt>Goes to</dt><dd>That service’s own sign-in page and the authorization server it names. You enter your password there, not in Thinkfork.</dd><dt>When</dt><dd>When you choose Sign in, then silent token refreshes while the connection is enabled.</dd><dt>Stored</dt><dd>Access and refresh tokens, encrypted on your Mac like API keys.</dd><dt>You control</dt><dd>Sign out or remove the connection and the tokens are deleted.</dd></dl></div></div>
+<h2>What stays on your Mac</h2>
+<div class="flow local"><div><h3>Canvases, files and settings</h3><dl><dt>Where</dt><dd>Only on your Mac, in the app’s own folder. Settings &gt; About shows the exact location.</dd><dt>Sent by Thinkfork</dt><dd>Never, except as part of a message you send to your provider.</dd></dl></div><div><h3>Diagnostics</h3><dl><dt>Where</dt><dd>Nothing is uploaded automatically. If you export diagnostics, you get a local file with versions, counts and error categories, without conversation text, file paths, endpoints, keys or tool payloads.</dd><dt>You control</dt><dd>Whether to share it.</dd></dl></div><div><h3>Your purchase</h3><dl><dt>Where</dt><dd>Handled by Apple on the Mac App Store. Thinkfork does not receive your payment details.</dd></dl></div></div>
+<h2>What Thinkfork does not do</h2>
+<ul>
+<li>No Thinkfork account, and no cloud sync.</li>
+<li>No analytics, advertising, tracking or crash reporting. The engine’s optional telemetry is turned off.</li>
+<li>No relay server between you and your model provider.</li>
+<li>The website sets no cookies and has no analytics.</li>
+</ul>
+<h2>Good to know</h2>
+<ul>
+<li>Local storage does not mean AI requests stay on your device: a reply is produced by the provider you choose, under that provider’s retention and training policies. Check them before sending sensitive material.</li>
+<li>When the assistant works in a folder you picked, it can read and change the files there. Only choose folders you are comfortable with.</li>
+</ul>
+<p>Questions? See the <a href="privacy.html">Privacy Policy</a> or the <a href="report.html">support page</a>.</p>
+</div>
+<div class="zh">
+<h1>你的数据</h1><p class="updated">最近更新：2026 年 11 月 23 日</p>
+<p class="summary">Thinkfork 运行在你的 Mac 上。我们没有任何服务器接收你的对话、文件或密钥。你的内容只会在你提出请求时，发送给你自己选择的服务。本页用通俗的话说明，正式文本见<a href="privacy.html">隐私政策</a>。</p>
+<h2>哪些内容会离开你的 Mac，发给谁</h2>
+<div class="flow"><div><h3>你的消息和上下文</h3><dl><dt>内容</dt><dd>你的问题、相关对话、你添加的补充背景、附加的文件，以及助手需要的工具结果。</dd><dt>发送给</dt><dd>你配置的模型提供方或接口。</dd><dt>时机</dt><dd>只在你发送消息或请求回复时。</dd><dt>你可以控制</dt><dd>选择哪个提供方和模型、附加哪些文件，也可以随时停止回复。</dd><dt>对方规则</dt><dd>适用该提供方自己的隐私政策和保留规则，Thinkfork 不参与这一过程。</dd></dl></div><div><h3>你的 API key</h3><dl><dt>内容</dt><dd>你所选提供方的 key。</dd><dt>发送给</dt><dd>只发给该提供方，用于验证你的请求。</dd><dt>保存方式</dt><dd>在你的 Mac 上加密保存，由 macOS 钥匙串保护。</dd><dt>你可以控制</dt><dd>随时在“设置”里移除。</dd></dl></div><div><h3>远程工具服务（MCP）</h3><dl><dt>内容</dt><dd>连接检查，以及助手代表你调用工具时传入的参数。</dd><dt>发送给</dt><dd>你添加并启用的服务。</dd><dt>时机</dt><dd>连接启用期间，以及使用工具时。</dd><dt>你可以控制</dt><dd>随时停用或移除连接。需要账号的服务使用你自己的凭据。</dd></dl></div><div><h3>浏览器登录（OAuth）</h3><dl><dt>内容</dt><dd>需要账号的服务的登录请求和令牌交换。</dd><dt>发送给</dt><dd>该服务自己的登录页面及其指定的授权服务器。密码由你在那里输入，不会经过 Thinkfork。</dd><dt>时机</dt><dd>你选择“登录”时，之后连接启用期间会静默刷新令牌。</dd><dt>保存方式</dt><dd>访问令牌和刷新令牌，与 API key 一样在你的 Mac 上加密保存。</dd><dt>你可以控制</dt><dd>退出登录或移除连接后，令牌会被删除。</dd></dl></div></div>
+<h2>哪些内容留在你的 Mac 上</h2>
+<div class="flow local"><div><h3>画布、文件和设置</h3><dl><dt>位置</dt><dd>只在你的 Mac 上，保存在应用自己的文件夹中。确切位置可在“设置 &gt; 关于”里查看。</dd><dt>Thinkfork 是否发送</dt><dd>不会，除非作为你发给提供方的消息的一部分。</dd></dl></div><div><h3>诊断信息</h3><dl><dt>位置</dt><dd>不会自动上传任何内容。如果你导出诊断，得到的是一个本机文件，包含版本、数量和错误分类，不含对话正文、文件路径、接口地址、密钥和工具负载。</dd><dt>你可以控制</dt><dd>是否分享。</dd></dl></div><div><h3>你的购买</h3><dl><dt>位置</dt><dd>由 Apple 在 Mac App Store 处理，Thinkfork 不会收到你的付款信息。</dd></dl></div></div>
+<h2>Thinkfork 不会做的事</h2>
+<ul>
+<li>没有 Thinkfork 账号，也没有云同步。</li>
+<li>没有统计分析、广告、跟踪或崩溃上报。引擎自带的可选遥测已关闭。</li>
+<li>你和模型提供方之间没有任何中转服务器。</li>
+<li>本网站不设置 Cookie，也没有统计分析。</li>
+</ul>
+<h2>需要了解</h2>
+<ul>
+<li>数据保存在本机，并不代表 AI 请求不会离开你的设备：回复由你选择的提供方生成，适用其保留和训练政策。发送敏感内容前请先查看。</li>
+<li>当助手在你选定的文件夹里工作时，它可以读取并修改那里的文件。只选择你放心的文件夹。</li>
+</ul>
+<p>有疑问？请查看<a href="privacy.html">隐私政策</a>或<a href="report.html">支持页面</a>。</p>
+</div>
+</main>
+<footer><a href="./">Thinkfork</a> · <a href="data.html"><span class="en">Your data</span><span class="zh">你的数据</span></a> · <a href="privacy.html"><span class="en">Privacy</span><span class="zh">隐私政策</span></a> · <a href="terms.html"><span class="en">Terms of Use</span><span class="zh">使用条款</span></a> · <a href="report.html"><span class="en">Support</span><span class="zh">反馈与支持</span></a></footer>
+<script src="legal.js"></script>
+</body>
+</html>
