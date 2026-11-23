@@ -126,6 +126,8 @@
     .shots2 figure { margin: 0; }
     .shots2 .shot { margin: 0 0 10px; }
     .shots2 figcaption { color: var(--muted); font-size: 0.95rem; }
+    .sub { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--border); }
+    .sub h3 { font-family: var(--display); font-size: clamp(1.3rem, 2.6vw, 1.6rem); line-height: 1.25; margin: 0 0 10px; }
     .step h3, .feature h3 { margin: 0 0 6px; font-size: 1.05rem; }
     .step p, .feature p { margin: 0; color: var(--muted); font-size: 0.97rem; }
 
@@ -183,8 +185,6 @@
       <nav class="nav-links" aria-label="Sections">
         <a href="#how" data-i18n="navHow">How it works</a>
         <a href="#features" data-i18n="navFeatures">Features</a>
-        <a href="#models" data-i18n="navModels">Models</a>
-        <a href="#privacy" data-i18n="navPrivacy">Privacy</a>
         <a href="#install" data-i18n="navInstall">Install</a>
       </nav>
       <div class="nav-end">
@@ -314,25 +314,18 @@
           <figure><div class="shot"><img src="img/files.png" alt="A comparison table delivered as a file, opened in a tab next to the conversation." width="2880" height="1800" loading="lazy"></div><figcaption data-i18n="g1">Files the assistant delivers open in tabs beside the conversation.</figcaption></figure>
           <figure><div class="shot"><img src="img/mcp.png" alt="The connections panel listing a connected remote service and its tools." width="2880" height="1800" loading="lazy"></div><figcaption data-i18n="g2">Connect remote tools and choose which ones to suggest for a message.</figcaption></figure>
         </div>
-      </div>
-    </section>
-
-    <section id="models">
-      <div class="wrap">
-        <h2 data-i18n="modelsTitle">Bring the model you already use</h2>
+        <div id="models" class="sub">
+        <h3 data-i18n="modelsTitle">Bring the model you already use</h3>
         <p class="section-lead" data-i18n="modelsLead">Pick a provider in Settings and paste your API key. Nothing else to configure.</p>
         <ul class="providers">
           <li class="first">DeepSeek</li><li>OpenRouter</li><li>OpenAI</li><li>Anthropic</li><li>Google Gemini</li><li data-i18n="custom">Any OpenAI-compatible endpoint</li>
         </ul>
         <p class="meta" data-i18n="modelsMcp">Add remote MCP services too. When a service needs an account, sign in through your browser and Thinkfork keeps the sign-in on your Mac.</p>
         <p class="meta" data-i18n="modelsNote">For a custom endpoint, enter its base URL and key. The model list is fetched automatically, and you can add model names by hand if the endpoint doesn’t publish one.</p>
-      </div>
-    </section>
-
-    <section id="privacy" class="alt">
-      <div class="wrap two">
+        </div>
+        <div id="privacy" class="sub two">
         <div>
-          <h2 data-i18n="privTitle">Your conversations stay yours</h2>
+          <h3 data-i18n="privTitle">Your conversations stay yours</h3>
           <p class="section-lead" style="margin-bottom:14px" data-i18n="privLead">Thinkfork runs on your Mac. Your conversations go only to the model provider you choose, and we run no server that receives them.</p>
           <p><a href="data.html" data-i18n="privMore">See exactly what is sent, and to whom</a></p>
         </div>
@@ -341,6 +334,7 @@
           <li><strong data-i18n="p2t">Key never leaves for us.</strong> <span data-i18n="p2d">Your API key is sent only to the provider you picked. We run no server that sees it.</span></li>
           <li><strong data-i18n="p3t">Closed to other programs.</strong> <span data-i18n="p3d">The app’s local service listens only on your machine, on a random port, and requires a secret that only its own window holds.</span></li>
         </ul>
+        </div>
       </div>
     </section>
 
