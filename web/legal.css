@@ -1,5 +1,5 @@
-:root { --bg:#fff; --text:#101828; --muted:#596277; --border:#e1e6f4; --accent:#4d6bfe; --soft:#e9edff; }
-@media (prefers-color-scheme: dark) { :root { --bg:#0b1020; --text:#e9edf9; --muted:#98a3bf; --border:#232c4d; --accent:#6f88ff; --soft:#1a2348; } }
+:root { --bg:#f6f3ea; --text:#292c32; --muted:#686b68; --border:#d9d5c8; --accent:#7a5c41; --accent-text:#fffdf8; --soft:#f1e9da; --display:"Iowan Old Style","Songti SC","Noto Serif CJK SC",Georgia,serif; }
+@media (prefers-color-scheme: dark) { :root { --bg:#1c1e19; --text:#f1eee5; --muted:#bdb8aa; --border:#3d4136; --accent:#d0b28e; --accent-text:#1c1e19; --soft:#302c23; } }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Noto Sans SC", sans-serif; -webkit-font-smoothing: antialiased; }
 a { color: var(--accent); }
@@ -11,7 +11,8 @@ header { border-bottom: 1px solid var(--border); }
 .lang button { background: none; border: 0; color: var(--muted); cursor: pointer; font: inherit; padding: 2px 4px; }
 .lang button[aria-pressed="true"] { color: var(--text); font-weight: 600; }
 main { max-width: 760px; margin: 0 auto; padding: 40px 20px 72px; }
-h1 { font-size: 2rem; line-height: 1.2; letter-spacing: -.02em; margin: 0 0 6px; }
+h1, h2, .brand { font-family: var(--display); }
+h1 { font-weight: 600; font-size: 2rem; line-height: 1.2; letter-spacing: -.02em; margin: 0 0 6px; }
 h2 { font-size: 1.15rem; margin: 34px 0 8px; }
 .updated { color: var(--muted); font-size: .9rem; margin: 0 0 26px; }
 .summary { background: var(--soft); border-radius: 12px; padding: 14px 18px; margin: 0 0 8px; }
@@ -28,7 +29,7 @@ input[readonly] { color: var(--muted); background: var(--soft); }
 .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 @media (max-width: 560px) { .row2 { grid-template-columns: 1fr; } }
 .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-.btn { font: inherit; font-weight: 600; border: 0; border-radius: 10px; padding: 10px 18px; cursor: pointer; background: var(--accent); color: #fff; text-decoration: none; display: inline-block; }
+.btn { font: inherit; font-weight: 600; border: 0; border-radius: 10px; padding: 10px 18px; cursor: pointer; background: var(--accent); color: var(--accent-text); text-decoration: none; display: inline-block; }
 .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
 .note { background: var(--soft); border-radius: 12px; padding: 12px 16px; font-size: .92rem; }
 .dl { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 22px 0 6px; }
